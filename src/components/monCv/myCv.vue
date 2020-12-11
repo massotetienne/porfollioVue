@@ -1,9 +1,18 @@
 <template>
-  <div class="q-pa-md q-gutter-sm text-center">
-    <q-btn class="text-center" label="Voir Mon Cv" color="purple-8" @click="layout = true"
+  <div class="q-pa-md q-gutter-sm text-center text-white">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10 bg-purple-8 border tw  q-ma-lg">
+        <h3>Mon CV </h3>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="q-ma-xl">
+    <q-btn class="text-center myfont"  label="Voir Mon Cv" color="purple-9" @click="layout = true"
       padding="xl"
       round
     />
+    </div>
     <q-dialog v-model="layout">
       <q-layout view="Lhh lpR fff" container class="bg-white">
         <q-header class="bg-purple-10">

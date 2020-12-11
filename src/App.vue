@@ -18,10 +18,10 @@ export default {
 }
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-.myfont{
+p,h3,.myfont{
   font-family: 'Pacifico', cursive;
 }
-p,h3{
+.myfont2{
   font-family: 'Caveat', cursive;
 }
 </style>

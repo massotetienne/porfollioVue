@@ -1,29 +1,33 @@
 <template>
-  <div class="q-pa-md">
-      <div class="row">
-          <div class="col-3">
-          </div>
-          <div class="col-6 text-center bg-purple">
-              <div class="q-ma-md text-grey-4">
-                  <h3><u>{{ title }}</u></h3>
-              </div>
-              <div class="q-ma-md text-grey-10 text-bold font25">
-                  <p>{{ lorem }}</p>
-              </div>
-          </div>
-          <div class="col-3"></div>
+  <div class="text-white text-center tw">
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-10 bg-purple-8 border tw  q-ma-xl">
+    <h2 class="text-h3 myfont">Mes compétences</h2>
+     </div>
+    <div class="col-1">
+    </div>
+    </div>
+    <div class="row">
+     <div class="col-2"></div>
+      <div class="col-8 bg-purple-9 border q-ma-lg q-pa-lg">
+       <p class="font25 q-pa-lg">
+        Ci dessous les languages et technologie que je connais et leurs niveau de compétences </p>
       </div>
+      <div class="col-2"></div>
+    </div>
       <div class='row q-pa-lg' >
         <div class="col-2 q-pa-md col-md-2 col-xs-6" :key="n" v-for="n in skill">
-          <q-card class="my-card text-center bg-purple">
+          <q-card class="my-card text-white text-center bg-purple-10">
             <q-circular-progress
               show-value
               font-size="10px"
-              class="q-ma-md"
+              class="q-ma-md bg-white"
               :value="n.value"
               size="100px"
               :thickness="0.25"
-              color="primary"
+              color="purple-8"
               track-color="grey-3"
             >
               <q-avatar size="60px">
@@ -42,9 +46,7 @@
 export default {
   data () {
     return {
-      title: 'mes compétences,',
-      value: 50,
-      lorem: 'Ici les languages que je connais avec mon niveau de compétence pour chaques languages',
+      // value: 50,
       skill: [
         {
           name: 'html',

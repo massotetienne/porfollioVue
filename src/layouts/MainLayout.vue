@@ -64,13 +64,10 @@
       <router-view />
     </q-page-container>
 
-    <q-footer elevated class="bg-purple-10 text-white">
+    <q-footer elevated class="bg-purple-10 text-white text-center myfont2">
       <q-toolbar>
         <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
-          </q-avatar>
-          Title
+          Copyright 2020 https://dev-squallou.fr
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
