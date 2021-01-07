@@ -7,7 +7,7 @@ module.exports = {
 
     // Method Get 
     get: async (req, res) => {
-        await Message.find()
+        await Message.find({})
           .exec((err, data) => {
             res.json(data);
           });

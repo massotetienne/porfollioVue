@@ -1,89 +1,95 @@
 <template>
 <div>
-<div class="row">
-    <div class="col-1">
-    </div>
-    <div class="col-10 bg-purple-8 border tw  q-ma-lg text-white text-center">
-        <h3>Contacter moi</h3>
-    </div>
-    <div class="col-1">
-    </div>
-</div>
-      <div class="row">
-          <div class="col-1">
-          </div>
-   <div class="col-10">
+  <div class="row">
+  <div class="col-1"></div>
+   <div class="col-10 q-pa-md bg-purple-8" style="margin-bottom:20px">
 
     <q-form
       @submit="onSubmit"
       @reset="onReset"
-      class="q-gutter-md bg-purple-9 q-pa-md q-ma-xl"
+      class="q-gutter-md"
     >
       <q-input
-        outlined
-        class="bg-white"
-        v-model="name"
-        label="Votre Nom et Prénom"
+       class="bg-white"
+        filled
+        type="text"
+        v-model="message.name"
+        label="Votre Nom"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'veuillez renseigner votre nom et prénom']"
+        :rules="[ val => val && val.length > 0 || 'veuillez renseigner votre adress nom']"
       />
 
       <q-input
-        class="bg-white"
-        outlined
+       class="bg-white"
+        filled
         type="email"
-        v-model="email"
-        label="Votre E-mail"
+        v-model="message.email"
+        label="Email"
         lazy-rules
-        :rules="[
-          val => val !== null && val !== '' || 'veuillez renseigner votre adresse mail']"
+        :rules="[ val => val && val.length > 0 || 'veuillez renseigner votre adress mail']"
       />
-    <q-editor v-model="editor" min-height="10rem" />
+      <div class="row">
+        <div class="col-6" style="margin-right:10px">
+          <q-input
+        class="bg-white"
+        filled
+        v-model="message.sujet"
+        type="text"
+        label="Sujet"
+        lazy-rules
+      />
+        </div>
+        <div class="col-5">
+           <q-input
+        class="bg-white"
+        filled
+        v-model="message.tel"
+        type="number"
+        label="Téléphone"
+        lazy-rules
+      />
+        </div>
+      </div>
+       <div class="q-pa-md q-gutter-sm">
+       <q-editor v-model="message.text" min-height="12rem" />
+      </div>
 
-      <q-toggle class="text-white" v-model="accept" label="I accept the license and terms" />
-
+      <q-toggle v-model="accept" label="I accept the license and terms" />
       <div>
-        <q-btn label="Submit" type="submit" color="purple-10" @click="createMessage(form)"/>
-        <q-btn label="Reset" type="reset" color="white" flat class="q-ml-sm bg-purple-8 text-white" />
+        <q-btn @click="onSubmit" label="Submit" type="submit" color="primary"/>
+        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
    </div>
-   <div class="col-1">
-   </div>
+  <div class="col-1"></div>
   </div>
-</div>
+  </div>
 </template>
+
 <script>
+import { mapActions } from 'vuex'
 export default {
   data () {
     return {
-      form: {
-        name: null,
-        email: null,
-        editor: null
-      },
+      message: { name: '', email: '', sujet: '' },
       accept: false
     }
   },
 
   methods: {
-    onSubmit (form) {
-      if (this.accept !== true) {
-        this.$q.notify({
-          color: 'red-5',
-          textColor: 'white',
-          icon: 'warning',
-          message: 'You need to accept the license and terms first'
-        })
-      } else {
-        this.$q.notify({
-          color: 'green-4',
-          textColor: 'white',
-          icon: 'cloud_done',
-          message: 'Submitted'
-        })
-      }
-    }
+    onSubmit (e) {
+      e.preventDefault()
+
+      console.log(this.message)
+      this.createMessage(this.message)
+    },
+    ...mapActions('message', ['createMessage'])
+  },
+
+  onReset () {
+    this.name = null
+    this.age = null
+    this.accept = false
   }
 }
 </script>

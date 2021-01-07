@@ -4,7 +4,9 @@ const MessageShema = new mongoose.Schema({
     
     name:String,
     email:String,
-    message:String,
+    sujet:String,
+    text:String,
+    tel:Number,
     createDate: {
         type:Date,
         default : new Date()
